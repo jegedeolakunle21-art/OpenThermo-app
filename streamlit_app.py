@@ -12,18 +12,24 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor, ExtraTreesRegressor
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
+
+from pathlib import Path
+
 SEED = 42
 rng = np.random.default_rng(SEED)
 
-PROJECT_DIR = Path("/content/OpenThermoAI")
+# Use the GitHub repository directory, not the Google Colab directory.
+PROJECT_DIR = Path(__file__).resolve().parent
 DATA_DIR = PROJECT_DIR / "data"
 MODEL_DIR = PROJECT_DIR / "models"
 REPORT_DIR = PROJECT_DIR / "reports"
 
-for folder in [DATA_DIR, MODEL_DIR, REPORT_DIR]:
+# Create only folders needed for writable output.
+for folder in [DATA_DIR, REPORT_DIR]:
     folder.mkdir(parents=True, exist_ok=True)
 
-print("OpenThermoAI folders created.")
+print("OpenThermoAI project directory:", PROJECT_DIR)
+
 
 #generate synthetic dataset
 def friction_factor(reynolds):
