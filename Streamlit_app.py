@@ -1,5 +1,4 @@
-#install libraries
-%pip install -q numpy pandas scikit-learn matplotlib joblib
+
 import os
 import json
 import time
