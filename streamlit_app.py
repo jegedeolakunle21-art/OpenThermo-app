@@ -167,7 +167,7 @@ def generate_dataset(n=5000, seed=42):
 df = generate_dataset(n=5000, seed=SEED)
 df.to_csv(DATA_DIR / "synthetic_heat_exchanger_data.csv", index=False)
 
-display(df.head())
+st.dataframe(df.head())
 print("Dataset shape:", df.shape)
 print("Saved synthetic dataset.")
 
