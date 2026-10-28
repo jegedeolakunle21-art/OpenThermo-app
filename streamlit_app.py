@@ -275,9 +275,9 @@ for name, model in models.items():
         })
 
 metrics = pd.DataFrame(results)
-metrics.to_csv(REPORT_DIR / "model_validation_metrics.csv", index=False)
+metrics.to_csv(REPORT_DIR / 
 
-display(metrics.round(4))
+st.dataframe(metrics.round(4))
 
 #plot model validation results
 for target in ["Q_W", "Th_out_C", "dp_h_Pa"]:
