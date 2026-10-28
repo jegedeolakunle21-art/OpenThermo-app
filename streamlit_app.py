@@ -275,7 +275,10 @@ for name, model in models.items():
         })
 
 metrics = pd.DataFrame(results)
-metrics.to_csv(REPORT_DIR / 
+metrics.to_csv(
+    REPORT_DIR / "model_validation_metrics.csv",
+    index=False
+)
 
 st.dataframe(metrics.round(4))
 
